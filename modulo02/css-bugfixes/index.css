@@ -57,6 +57,8 @@ div img {
 
 .icone {
     height: 15px;
+    width: auto;
+    background: unset;
 }
 
 
@@ -103,7 +105,10 @@ table {
 td {
     text-align: center;
 }
-
+td img {
+    height: 50px;
+    width: auto;
+}
 td button {
     background-color: #fadf63;
     width: 150px;
@@ -116,7 +121,7 @@ td button {
     margin-top: 20px;
     height: 100px;
 }
-
+    
 
 #back-button {
     background-color: white;
