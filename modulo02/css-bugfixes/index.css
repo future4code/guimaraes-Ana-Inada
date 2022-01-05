@@ -25,6 +25,7 @@ button:focus {
     color: white;
 }
 
+
 img {
     width: 100px;
 }
@@ -47,9 +48,13 @@ div img {
 }
 
 .botao-amarelo:hover {
-    background-color: #c44f00;
+    background-color: #c4a000;
 }
+.botao-amarelo:active{
+    background: #c4a000;
+    color: white;
 
+}
 .container {
     height: 500px;
     text-align: center;
@@ -116,14 +121,20 @@ td button {
     border-radius: 5px;
     color: black;
 }
-
+td button:hover{
+    background-color: #c4a000;
+}
+td button:active{
+    background-color: #c4a000;
+    color: white;
+}
 .container-do-search {
     margin-top: 20px;
     height: 100px;
 }
     
 
-#back-button {
+.back-button {
     background-color: white;
     width: 100px;
     height: 20px;
@@ -133,6 +144,10 @@ td button {
     color: black;
 }
 
-#back-button:hover {
-    background-color: #635a3d
+.back-button:hover {
+    background-color: #e9e4d5
+}
+.back-button:active {
+    background-color: #e9e4d5;
+    color: white;
 }
