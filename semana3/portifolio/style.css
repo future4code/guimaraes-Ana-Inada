@@ -1,0 +1,45 @@
+* {
+    box-sizing: border-box;
+}
+.cabecalho {
+    background-color: rgb(82, 200, 195);
+    height: 200px;
+    text-align:left;
+    padding: 10px;
+}
+.cabecalho>h1{
+    font-style: italic;
+    font-size: 50px;
+}
+.cabecalho>p{
+    font-size: 25px;
+}
+.cabecalho>.menu{
+    text-align: right;
+    background-attachment: fixed;
+}
+.item-menu>*{
+    background-color:rgb(148, 240, 235) ;
+    width: 300px;
+    height: 40px;
+    border-radius: 30px;
+    font-size: 30px;
+}
+.corpo-conteudo{
+    padding-left: 40px;
+    font-size: 25px;
+}
+.corpo-conteudo>.imagens-code{
+    height:auto ;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+  
+}
+.foto-galeria{
+   align-items: flex-start;
+}
+.rodape{
+    background-color: rgb(82, 200, 195);
+    padding-block-end: 50px;
+}
