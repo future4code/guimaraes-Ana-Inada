@@ -1,0 +1,47 @@
+* {
+    box-sizing: border-box;
+}
+
+#cabecalho{
+    background-color: mediumvioletred;
+    display: flex;
+    flex-grow: 1;
+}
+#cabecalho>button{
+    height:20px;
+    width: auto;
+    justify-content: flex-end;
+
+}
+#menu{
+    background:#f2d0e0;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+     display: flex;
+    flex-direction: column; 
+    height: 500px;
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;
+    /*flex-grow: 2;*/
+}
+
+.item-menu{
+    display: flex;
+    width: 100%;
+    gap: 20px;
+}
+.setinha{
+    margin-left: auto;
+}
+#bolos-bonitos{
+    flex-grow: 3;
+}
+#rodape{
+    flex-grow: 1;
+    background-color: mediumvioletred;
+}
+#rodape>h3{
+    align-items: center;
+}

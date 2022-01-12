@@ -1,45 +1,175 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
 * {
     box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
 }
+.img-background{
+    background-image: url("img/mao-digitando.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.layout{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 100px 4fr 370px;
+}
+
+
+/*geral  */
 .cabecalho {
-    background-color: rgb(82, 200, 195);
-    height: 200px;
-    text-align:left;
-    padding: 10px;
-}
-.cabecalho>h1{
-    font-style: italic;
-    font-size: 50px;
-}
-.cabecalho>p{
-    font-size: 25px;
-}
-.cabecalho>.menu{
-    text-align: right;
+    background-color: #C59624;
+    height: auto;
+    text-align:right;
     background-attachment: fixed;
+    margin: 0px;
+    grid-column: 1/3;
+    grid-row: 1/2;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
 }
+.cabecalho>*{
+    margin-right: 15px;
+}
+
+
+/*index*/
 .item-menu>*{
-    background-color:rgb(148, 240, 235) ;
+    color:#38441d ;
     width: 300px;
     height: 40px;
-    border-radius: 30px;
-    font-size: 30px;
-}
-.corpo-conteudo{
-    padding-left: 40px;
+    padding: 10px;
+    margin-right: 25px;
+    border-radius: 10px;
     font-size: 25px;
+    font-style: bold;
+    font-size: 30px;
+
 }
-.corpo-conteudo>.imagens-code{
-    height:auto ;
-    width: 40%;
+/*index*/
+.nome-apresentacao{
+    background-color: rgba(255, 235, 205, 0.363);
+    font-size: 20px;
+    padding: 25px;
+    color: #27160F;
     display: flex;
     flex-direction: column;
-  
+    justify-content: center;
+    grid-column: 1/2;
+    grid-row: 2/3;
+   
+}
+/*index*/
+.galeria-projetos{
+    background-color: #7d7e56d5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+/*index*/
+.galeria-projetos>h3{
+    font-size: 50px;
+    margin-top: 50px;
+    font-weight:normal;
+    text-align: left;
+    width: 80%;
 }
 .foto-galeria{
    align-items: flex-start;
 }
+/*index*/
 .rodape{
-    background-color: rgb(82, 200, 195);
-    padding-block-end: 50px;
+    color: blanchedalmond;
+    padding-left: 25px;
+    padding-block-end: 25px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    grid-row: 3/4;
+    grid-column:1/3;
+}
+.form-contato{
+    margin: 0px;
+}
+.form-contato>h3{
+    font-weight:normal;
+}
+.forms-item{
+    padding: 0px;
+}
+.forms-item>h4{
+    font-weight:normal;
+}
+
+
+
+/*geral*/
+footer{
+    background-color: #C59624;
+    grid-column: 1/3; /*esp. p/ index*/
+    grid-template-rows: 3/4;
+}
+
+/*projetos e page-profi*/
+.voltar{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-top: 20px;
+}
+.nome-ano{
+    color: #38441d;
+    font-weight:normal;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+}
+
+
+/* Projetos e trag-profi e habilidades*/
+.corpo-conteudo{
+    padding-left: 40px;
+    font-size: 25px;
+    margin-top: 30px;
+    background-color: #38441d86;
+    min-height: 800px;
+    margin: 0 20%;
+    
+}
+.corpo-conteudo>h3{
+    color: #F0D152;
+    padding-block-end: 30px;
+    padding-top: 30px;
+}
+.corpo-conteudo>p{
+    line-height: 50px;
+}
+/* Projetos*/
+.container-img{
+    display: flex;
+    padding-block-end: 30px;
+}
+.imagens-code{
+    height:auto ;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* Projetos blackjack*/
+.corpo-conteudo>ol{
+    line-height: 50px;
+}
+
+/* Projetos tikcet*/
+.corpo-conteudo>ul{
+    line-height: 50px;
 }
