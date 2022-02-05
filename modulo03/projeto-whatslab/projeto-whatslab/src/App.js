@@ -8,7 +8,7 @@ import Botao from "./components/Botao/Botao";
 const Conteiner = styled.div`
   background-color: rgb(207, 228, 206);
   display: flex;
-  flex-direction: row; 
+  flex-direction: row;  
   align-self: center;
   border: 1px solid gray;
   width: 500px;
