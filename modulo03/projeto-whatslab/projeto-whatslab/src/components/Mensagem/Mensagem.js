@@ -11,19 +11,14 @@ const InputMensagem=styled.input`
 `
 
 class Mensagem extends React.Component{
-
-    state={
-        valorMensagem:''
-    }
-
-    onChangeMensagem=(event) =>{
-        this.setState({valorMensagem:event.target.value})
+    constructor(props){
+        super(props)
     }
     render(){
         return(<InputMensagem
             placeholder={'Mensagem'}
-            onChange={this.onChangeMensagem}
-            value={this.state.valorMensagem}
+            onChange={this.props.onChangeMensagem}
+            value={this.props.valorMensagem}
             />
         )
     }

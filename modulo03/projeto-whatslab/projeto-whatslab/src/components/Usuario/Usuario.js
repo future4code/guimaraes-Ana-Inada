@@ -14,6 +14,7 @@ class Usuario extends React.Component{
     constructor(props){
         super(props)
     }
+    
     render(){
         return (<InputComentario
             placeholder={'Usuário'}
