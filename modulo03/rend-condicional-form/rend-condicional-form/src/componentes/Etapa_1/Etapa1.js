@@ -16,16 +16,9 @@ class Etapa1 extends React.Component{
     };
 
     render(){
-        let secao;
-        switch(this.state.pagina){
-            case "etapa2":
-                secao = <Etapa2 />;
-                break;
-            default:
-                secao = <p>Nenhuma seção selecionada</p>;
-        }
+       
 
-        return <ContainerPai>
+        return <>
             <Titulo> ETAPA1 -DADOS GERAIS</Titulo>
             <Label> 1. Qual o seu nome?</Label>
             <Input/>
@@ -41,8 +34,7 @@ class Etapa1 extends React.Component{
                 "Ensino superior completo"
             ]}
             />
-            <Botao onClick={this.props.onClickEtapa2}>Próxima Etapa</Botao>
-        </ContainerPai>
+        </>
         
     }
 }
