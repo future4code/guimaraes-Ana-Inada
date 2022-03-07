@@ -17,19 +17,20 @@ const BotaoEnviar = styled.button`
 
 `
 class InserirDadosClientes extends React.Component{
-    inserirNome = (event) =>{
-        this.setState({inputNome:event.target.value});
-    }
+    
     render(){
         return (
             <ContaienerInserirdados>
                 <label> Nome </label>
                 <InsiraNome
                     value={this.props.inputNome}
-                    onChange={this.inserirNome}
+                    onChange={this.props.inserirNome}
                 />
                 <label> Email</label>
-                <InsiraEmail/>
+                <InsiraEmail
+                    value={this.props.inputEmail}
+                    onChange={this.props.inserirEmail}
+                />
                 <BotaoEnviar onClick={this.props.createUser}>Enviar</BotaoEnviar>
             </ContaienerInserirdados>
         );
