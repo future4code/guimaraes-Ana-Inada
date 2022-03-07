@@ -21,7 +21,9 @@ class App extends React.Component{
     ],
     inputNome:"",
     inputEmail:"",
-    currentPage: "signUp"
+    currentPage: "signUp",
+    inputUsuario: "",
+    filtro:"",
   }
   componentDidMount(){
     this.pegarDados()
@@ -63,15 +65,15 @@ class App extends React.Component{
     })
     .catch((err)=>console.log(err.response))
   }
-
-
   inserirNome = (event) =>{
     this.setState({inputNome:event.target.value});
 }
   inserirEmail=(event) =>{
     this.setState({inputEmail:event.target.value})
   }
-
+  inserirUsuario = (event) =>{
+    this.setState({inputUsuario:event.target.value});
+}
   changePage = () => {
     if (this.state.currentPage === "signUp") {
       this.setState({ currentPage: "users" });
@@ -79,9 +81,23 @@ class App extends React.Component{
       this.setState({ currentPage: "signUp" });
     }
   };
-
+  buscarDados=()=>{
+    this.setState({filtro:this.state.inputUsuario})
+}
   render(){
-    const listaRenderizada = this.state.dadosSalvos.map((dados)=>{
+    const listaRenderizada = this.state.dadosSalvos
+    .filter((dados)=>{
+      if(dados.name === this.state.filtro){
+        return dados 
+      }else if (this.state.filtro === ""){
+        return dados 
+      }
+      /**
+       * compara o dados.name com o valor do filtro
+       * OBS: se o valor vazio retornar todos
+       */
+    })
+    .map((dados)=>{
       return(
         <div>
           <p key={dados.id}>{dados.name}</p>
@@ -89,20 +105,26 @@ class App extends React.Component{
         </div>
       )
     })
+    
       return (
         <ContainerPai>
+          { this.state.currentPage === "signUp" ?
           <InserirDadosClientes
             inputNome ={this.state.inputNome}
             inputEmail={this.state.inputEmail}
             createUser={this.createUser}
             inserirNome ={this.inserirNome}
             inserirEmail={this.inserirEmail}
-          />
+          /> :
           <ProcurarDados
           listaRenderizada={listaRenderizada}
-          />
+          inserirUsuario={this.inserirUsuario}
+          dadosSalvos={this.state.dadosSalvos}
+          inputUsuario={this.state.inputUsuario}
+          buscarDados={this.buscarDados}
+
+          />}
           <button onClick={this.changePage}>Trocar de tela</button>
-        {this.state.currentPage === "signUp" ? <InserirDadosClientes /> : <ProcurarDados/>}
         </ContainerPai>
       );
   }
