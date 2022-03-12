@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import React from 'react';
 import CriarPlaylist from './componentes/CriarPlaylist/CriarPlaylist'
 import VerTodasPlaylists from './componentes/VerTodasPlaylists/VerTodasPlaylists'
+import AcessarPlaylist from './componentes/AcessarPlaylist/AcessarPlaylist';
 import axios from 'axios';
 
 const urlPlaylist = 
@@ -16,7 +17,12 @@ class App extends React.Component{
 
   state={
     playlistsSalvas:[],
-    currentPage:"CriarPlaylist"
+    playlistMusicas:{
+      faixas:[],
+      nome:"",
+      id:""
+    },
+    currentPage:"VerTodasPlaylists",
   };
 
   componentDidMount() {
@@ -32,27 +38,60 @@ class App extends React.Component{
       .catch((err) => console.log(err));
   };
   changePage = () => {
-    if (this.state.currentPage === "CriarPlaylist") {
-      this.setState({ currentPage: "VerTodasPlaylists" });
-    } else {
+    if (this.state.currentPage === "VerTodasPlaylists") {
       this.setState({ currentPage: "CriarPlaylist" });
+    } else {
+      this.setState({ currentPage: "VerTodasPlaylists" });
     }
   };
   
+  pegarMusicasPlaylists = (playlistId,nome) => {
+    axios
+      .get(
+        `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${playlistId}/tracks`,
+        {
+          headers:{
+            Authorization: "ana-inada-guimaraes"
+          }
+        }
+      )
+      .then((res) => {
+        this.setState({ 
+          playlistMusicas: {
+            faixas:res.data.result.tracks,
+            nome,
+            id:playlistId
+          }, 
+          currentPage:"AcessarPlaylist"
+        });
+        console.log(res.data.result);
+      })
+      .catch((err) => console.log(err));
+  };
   render(){
-    return (
-      <div> 
-        {this.state.currentPage==="CriarPlaylist"?(
-          <CriarPlaylist/>
-        ):(
-          <VerTodasPlaylists
+    switch (this.state.currentPage) {
+      case "VerTodasPlaylists":
+        return <VerTodasPlaylists
           pegarPlaylists={this.pegarPlaylists}
           playlistsSalvas={this.state.playlistsSalvas}
-          />
-        )}
-        <button onClick={this.changePage}>Trocar de tela</button>
-      </div>
-    );
+          verPlaylist={this.verPlaylist}
+          mudarTela={this.mudarTela}
+          pegarMusicasPlaylists={this.pegarMusicasPlaylists}
+          changePage={this.changePage}
+        />;
+      case "AcessarPlaylist":
+        return <AcessarPlaylist
+          playlistMusicas={this.state.playlistMusicas}
+          pegarMusicasPlaylists={this.pegarMusicasPlaylists}
+          changePage={this.changePage}
+        />;
+        case "CriarPlaylist":
+          return <CriarPlaylist
+            changePage={this.changePage}
+            />;
+      default:case "VerTodasPlaylists":
+          return <VerTodasPlaylists/>;
+    }
   }
   
 }

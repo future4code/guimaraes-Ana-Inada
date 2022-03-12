@@ -12,14 +12,14 @@ const headers = {
 
 class VerTodasPlaylists extends React.Component{
   
-  apagarPlaylist=(id)=>{
-    confirmarEApagar=()=>{
-      if(confirm("Certeza que deseja apagar a playlist?")===true){
-        return this.apagarPlaylist()
-      }else{
-        return alert("Continua salva")
-      }
+  confirmarEApagar=(id)=>{
+    if(window.confirm("Certeza que deseja apagar a playlist?")){
+      return this.apagarPlaylist(id)
+    }else{
+      return alert("Continua salva")
     }
+  }
+  apagarPlaylist=(id)=>{
     axios
       .delete(
         `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${id}`,
@@ -41,7 +41,8 @@ class VerTodasPlaylists extends React.Component{
         return(
           <div key={playlist.id}>
             <p>{playlist.name}</p>
-            <button onClick={()=> this.apagarPlaylist(playlist.id)}>Apagar</button>
+            <button onClick={()=> this.confirmarEApagar(playlist.id)}>Apagar</button>
+            <button onClick={()=>this.props.pegarMusicasPlaylists(playlist.id,playlist.name)}>Ver playlist</button>
           </div>
         )
       })
@@ -49,7 +50,9 @@ class VerTodasPlaylists extends React.Component{
     return (
       <div>
         <h4>Lista de playlist</h4>
+        <button onClick={this.props.changePage}>Criar playlist</button>
         {listaDePlaylists}
+
       </div>
     );
   }

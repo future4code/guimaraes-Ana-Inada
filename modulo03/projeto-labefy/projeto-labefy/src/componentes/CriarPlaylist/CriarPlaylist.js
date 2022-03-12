@@ -43,6 +43,7 @@ class CriarPlaylist extends React.Component{
             onChange={this.inseirNomeDaPlaylist}
           />
           <button onClick={this.criarPlaylist}>Criar Playlist</button>
+          <button onClick={this.props.changePage}>Ver playlists</button>
         </div>
       );
     }
