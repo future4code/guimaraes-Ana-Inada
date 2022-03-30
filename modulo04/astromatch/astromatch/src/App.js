@@ -4,11 +4,11 @@ import axios from 'axios';
 import CardPrincipal from './components/CardPrincipal/CardPrincipal';
 import ListaDeMatch from './components/ListaDeMatch/ListaDeMatch';
 
+
 export default function App() {
   const [tela,setTela ]= useState(true);
   const choose=()=>{
     setTela(false)
-    console.log(choose)
   }
   const lista=()=>{
     setTela(true)
@@ -20,7 +20,6 @@ export default function App() {
   )
   return (
     <div>
-
         {pagina}
     </div>
     
