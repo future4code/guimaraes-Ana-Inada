@@ -9,10 +9,10 @@ export default function AdmHomePage() {
     }
 
     const goToCreateTrip=()=>{
-        navigate('/login/pagina_administrativa/criar_viagem')
+        navigate('/admin/trips/create')
     }
     const goToDetails=()=>{
-      navigate('/login/pagina_administrativa/detalhes_da_viagem')
+      navigate('/admin/trips/:id')
     }
   return (
     <div>

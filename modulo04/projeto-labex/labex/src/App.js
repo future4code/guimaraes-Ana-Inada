@@ -16,13 +16,13 @@ export default function App() {
       <BrowserRouter>
         <Routes>
           <Route index path='/' element={<HomePage/>} />
-          <Route path='lista_de_viagens'element={<ListTripsPage/>} />
-          <Route path='lista_de_viagens/inscrever_se' element={<AplicationFormPage/>}/>
+          <Route path='/trips/list'element={<ListTripsPage/>} />
+          <Route path='/trips/application' element={<AplicationFormPage/>}/>
           
-          <Route path='login'element={<LoginPage/>} />
-          <Route path ='login/pagina_administrativa' element={<AdmHomePage/> }/>
-          <Route path='login/pagina_administrativa/criar_viagem' element={<CreateTripPage/>}/>
-          <Route path='login/pagina_administrativa/detalhes_da_viagem' element={<TripDetailsPage/>} />
+          <Route path='/login'element={<LoginPage/>} />
+          <Route path ='/admin/trips/list' element={<AdmHomePage/> }/>
+          <Route path='/admin/trips/create' element={<CreateTripPage/>}/>
+          <Route path='/admin/trips/:id' element={<TripDetailsPage/>} />
         </Routes>
       </BrowserRouter>
     </div>

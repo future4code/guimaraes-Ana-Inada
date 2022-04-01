@@ -4,9 +4,14 @@ import { useNavigate } from "react-router-dom";
 
 
 export default function TripDetailsPage() {
+    const navigate=useNavigate()
+    const goToBack=()=>{
+      navigate(-1)
+    }
     return(
 
         <div>
+            <button onClick={goToBack}>Voltar</button>
             <p>Nome da Viagem</p>
             <p>Candidatos Pendentes</p>
             <button> Aprovar</button>

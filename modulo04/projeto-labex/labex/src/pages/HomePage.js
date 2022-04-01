@@ -7,7 +7,7 @@ export default function HomePage() {
   const navigate=useNavigate()
 
   const goToListTrips=()=>{
-    navigate('/lista_de_viagens')
+    navigate('/trips/list')
   }
   const goToLogin=()=>{
     navigate('/login')

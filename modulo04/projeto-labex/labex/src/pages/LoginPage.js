@@ -10,7 +10,7 @@ export default function LoginPage() {
     }
 
     const goToAdm=()=>{
-      navigate('/login/pagina_administrativa')
+      navigate('/admin/trips/list')
     }
   return (
     <div>

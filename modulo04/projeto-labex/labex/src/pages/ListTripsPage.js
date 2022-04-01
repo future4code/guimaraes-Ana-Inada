@@ -9,7 +9,7 @@ export default function ListTripsPage() {
         navigate(-1)
     }
     const goToForm=()=>{
-      navigate('/lista_de_viagens/inscrever_se')
+      navigate('/trips/application')
     }
   return (
     <div>
