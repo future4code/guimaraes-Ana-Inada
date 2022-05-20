@@ -1,0 +1,11 @@
+{
+  "name": "package-jason",
+  "version": "1.0.0",
+  "description": "exercicio 1",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js"
+  },
+  "author": "Ana Inada",
+  "license": "ISC"
+}
