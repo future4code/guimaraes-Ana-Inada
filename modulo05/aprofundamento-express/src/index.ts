@@ -60,7 +60,31 @@ const arrayAfazeres:Afazeres[]=[
         id:4,
         title:"ração das gatas",
         completed: false, 
-    }
+    },
+    {
+        userID: 2,
+        id:5,
+        title:"banho nas gatas",
+        completed: false, 
+    },
+    {
+        userID: 2,
+        id:6,
+        title:"lavar cabelo",
+        completed: true, 
+    },
+    {
+        userID: 2,
+        id:7,
+        title:"varrer frentre",
+        completed: false, 
+    },
+    {
+        userID: 2,
+        id:8,
+        title:"fazer a sobrancelha",
+        completed: false, 
+    },
 ]
 
 //
@@ -80,10 +104,76 @@ app.get('/tarefas',
 // 
 // exercício 5
 // 
-app.post('/tarefas/criar', (req:Request, res: Response)=>{
+app.post('/tarefas', (req:Request, res: Response)=>{
     try{
-        const tarefaNova=req.body
-        
+        const id= req.body.userID;
+        const titulo=  req.body.title
+        const idAnterior= arrayAfazeres[arrayAfazeres.length-1].id
+        const novaTarefa:Afazeres={
+            userID: id,
+            id: Date.now(),
+            title: titulo,
+            completed: false
+        };
+        arrayAfazeres.push(novaTarefa)
+        res.send(arrayAfazeres)
 
+    }catch (error: any) {
+        response.end(error.message);
+     }
+}
+)
+//
+// exercício 6
+//
+//
+app.put('/tarefas/:id/completed', (req:Request, res:Response)=>{
+    try{
+        const id=Number(req.params.id)
+        arrayAfazeres.map((tarefa)=>{
+            if(id === tarefa.id){
+                return tarefa.completed = !tarefa.completed
+            }
+        }) 
+        res.send(arrayAfazeres)
+    }catch(error:any){
+        res.end(error.message);
+    }
+})
+//
+//
+//exercício 7
+// 
+//
+// app.delete('/tarefas/:id', (req:Request, res:Response)=>{
+//     try{
+//         const id=Number(req.params.id)
+//         arrayAfazeres.map((tarefa)=>{
+//             if(id === tarefa[i].id){
+//                 return 
+//             }
+//         }) 
+//         res.send(arrayAfazeres)
+//     }catch(error:any){
+//         response.end(error.message);
+//     }
+// })
+
+//
+// Exercício 8 
+//
+//
+app.get('/users/:id/todos', (req:Request,res:Response)=>{
+    try{
+        const id=Number(req.params.id)
+
+        const tarefaUser =arrayAfazeres.filter((user)=>{
+          if (id === user.userID){
+              return user
+          }
+        })
+        res.send(tarefaUser)
+    }catch(error:any){
+        res.end(error.message)
     }
 })
