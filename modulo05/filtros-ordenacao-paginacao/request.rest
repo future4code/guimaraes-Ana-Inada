@@ -1,0 +1,12 @@
+
+// Pega por nome do usuário
+#Get http://localhost:3003/users?name=j
+
+// Pega o tipo de user 
+#Get http://localhost:3003/users?type=Teacher
+
+// Ordene 
+#Get http://localhost:3003/users?sort=name&order=
+
+// Paginação 
+Get http://localhost:3003/users?page=1
