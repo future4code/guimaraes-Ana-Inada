@@ -1,12 +1,40 @@
 
-// Pega por nome do usuário
-#Get http://localhost:3003/users?name=j
+# POST http://localhost:3003/users HTTP/1.1
+# content-type: application/json
 
-// Pega o tipo de user 
-#Get http://localhost:3003/users?type=Teacher
+# {
+#     "name": "Ofelia",
+#     "email": "ofelia@email.com", 
+#     "password": "12345"
+# }
 
-// Ordene 
-#Get http://localhost:3003/users?sort=name&order=
+# GET http://localhost:3003/users
 
-// Paginação 
-Get http://localhost:3003/users?page=1
+# POST http://localhost:3003/products HTTP/1.1
+# content-type: application/json
+
+# {
+#     "name": "Caderno",
+#     "price": "45.98", 
+#     "image_url": "https://cdn.shopify.com/s/files/1/0019/4035/7209/products/candyA5_aberto_1024x1024.jpg?v=1611672900"
+# };
+
+# GET http://localhost:3003/products
+
+# POST http://localhost:3003/purchases HTTP/1.1
+# content-type: application/json
+
+# {
+#     "user_id": "3eea96c8-5f53-4a92-af03-05cc99e3be01",
+#     "product_id": "eac27647-d724-4e79-b686-c0ef720be763", 
+#     "quantity": 20
+# };
+
+POST http://localhost:3003/purchases HTTP/1.1
+content-type: application/json
+
+{
+    "user_id": "3eea96c8-5f53-4a92-af03-05cc99e3be01",
+    "product_id": "eac27647-d724-4e79-b686-c0ef720be763", 
+    "quantity": 20
+}

@@ -11,20 +11,18 @@ const createTables = () =>
     .raw(
       `
 
-      CREATE TABLE IF NOT EXISTS aula49_users (
+      CREATE TABLE IF NOT EXISTS labecommerce_users (
          id VARCHAR(255) PRIMARY KEY,
          name VARCHAR(255) UNIQUE NOT NULL,
          email VARCHAR(255) UNIQUE NOT NULL,
          password VARCHAR(255) NOT NULL
       );
 
-      CREATE TABLE IF NOT EXISTS aula49_recipes (
+      CREATE TABLE IF NOT EXISTS labecommerce_products (
          id VARCHAR(255) PRIMARY KEY,
-         title VARCHAR(255) NOT NULL,
-         description TEXT(1023),
-         user_id VARCHAR(255),
-         created_at BIGINT,
-         FOREIGN KEY(user_id) REFERENCES aula49_users(id) 
+         name VARCHAR(255) NOT NULL,
+         price INT,
+         image_url VARCHAR(255) 
       );
 
 `
