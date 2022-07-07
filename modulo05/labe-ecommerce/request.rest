@@ -3,8 +3,8 @@
 # content-type: application/json
 
 # {
-#     "name": "Ofelia",
-#     "email": "ofelia@email.com", 
+#     "name": "Isabel",
+#     "email": "bel@email.com", 
 #     "password": "12345"
 # }
 
@@ -14,27 +14,20 @@
 # content-type: application/json
 
 # {
-#     "name": "Caderno",
-#     "price": "45.98", 
-#     "image_url": "https://cdn.shopify.com/s/files/1/0019/4035/7209/products/candyA5_aberto_1024x1024.jpg?v=1611672900"
-# };
+#     "name": "Giz Pastel",
+#     "price": 100, 
+#     "image_url": "https://m.media-amazon.com/images/I/71atpfdmmyL._AC_SX355_.jpg"
+# }
 
 # GET http://localhost:3003/products
 
-# POST http://localhost:3003/purchases HTTP/1.1
-# content-type: application/json
 
-# {
-#     "user_id": "3eea96c8-5f53-4a92-af03-05cc99e3be01",
-#     "product_id": "eac27647-d724-4e79-b686-c0ef720be763", 
-#     "quantity": 20
-# };
 
 POST http://localhost:3003/purchases HTTP/1.1
 content-type: application/json
 
 {
-    "user_id": "3eea96c8-5f53-4a92-af03-05cc99e3be01",
-    "product_id": "eac27647-d724-4e79-b686-c0ef720be763", 
-    "quantity": 20
+    "user_id": "59423e02-85fe-47b4-bc9e-ed81a10223f6",
+    "product_id": "a1f445a3-20fe-4bcb-9ef8-6373b7ecc88e", 
+    "quantity": 2
 }
