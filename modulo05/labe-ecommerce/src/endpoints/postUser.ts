@@ -24,7 +24,7 @@ export async function postUser(req: Request, res: Response): Promise<any> {
         id,
       })
       .into("labecommerce_users");
-    res.status(200).send(insertUser);
+    res.status(200).send("Usuário cadastrado com sucesso!");
   } catch (error: any) {
     res.status(statusCode || 400).send(error.message);
   }

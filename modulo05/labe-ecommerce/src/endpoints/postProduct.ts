@@ -8,7 +8,7 @@ export async function postProduct(req: Request, res: Response): Promise<any> {
   const { name, price, image_url } = req.body;
   const id = uuid();
   try {
-    const insertProduct = await connection("labecommerce_products")
+    await connection("labecommerce_products")
       .insert({
         name,
         price,
@@ -16,7 +16,7 @@ export async function postProduct(req: Request, res: Response): Promise<any> {
         id,
       })
       .into("labecommerce_products");
-    res.status(200).send(insertProduct);
+    res.status(200).send("Produto cadastrado com sucesso!");
   } catch (error: any) {
     res.status(statusCode || 400).send(error.message);
   }

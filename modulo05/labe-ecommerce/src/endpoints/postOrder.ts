@@ -27,7 +27,7 @@ export async function postOrder(req: Request, res: Response): Promise<any> {
         totatl_price,
       })
       .into("labecommerce_purchases");
-    res.status(200).send(insertOrder);
+    res.status(200).send("Compra feita com sucesso");
   } catch (error: any) {
     res.status(statusCode || 400).send(error.message);
   }

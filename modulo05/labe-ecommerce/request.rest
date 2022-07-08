@@ -19,15 +19,15 @@
 #     "image_url": "https://m.media-amazon.com/images/I/71atpfdmmyL._AC_SX355_.jpg"
 # }
 
-# GET http://localhost:3003/products
+GET http://localhost:3003/products
 
 
 
-POST http://localhost:3003/purchases HTTP/1.1
-content-type: application/json
+# POST http://localhost:3003/purchases HTTP/1.1
+# content-type: application/json
 
-{
-    "user_id": "59423e02-85fe-47b4-bc9e-ed81a10223f6",
-    "product_id": "a1f445a3-20fe-4bcb-9ef8-6373b7ecc88e", 
-    "quantity": 2
-}
+# {
+#     "user_id": "59423e02-85fe-47b4-bc9e-ed81a10223f6",
+#     "product_id": "a1f445a3-20fe-4bcb-9ef8-6373b7ecc88e", 
+#     "quantity": 2
+# }
