@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import { connection } from "../data/connection";
 import { uuid } from "uuidv4";
-import { products } from "../types";
 
 export async function postProduct(req: Request, res: Response): Promise<any> {
   let statusCode;

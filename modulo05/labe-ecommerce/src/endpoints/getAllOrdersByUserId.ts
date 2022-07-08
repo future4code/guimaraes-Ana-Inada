@@ -7,15 +7,29 @@ export async function getAllOrdersByUserId(
 ): Promise<any> {
   let statusCode;
   try {
-    const showProducts = await connection("labecommerce_purchases")
-      .join(
-        "labecommerce_products",
-        "labecommerce_products.id",
-        "labecommerce_products.name",
-        "labecommerce_purchases.user_id"
+    const { user_id } = req.params;
+    const showOrder = await connection(`labecommerce_purchases`)
+      .select(
+        `labecommerce_products.name`,
+        `labecommerce_purchases.quantity`,
+        `labecommerce_products.price`,
+        `labecommerce_purchases.totatl_price`
       )
-      .select("");
-    res.status(200).send(showProducts);
+      .from("labecommerce_products")
+      .innerJoin(
+        `labecommerce_purchases`,
+        `labecommerce_products.id`,
+        `=`,
+        `labecommerce_purchases.product_id`
+      )
+      .innerJoin(
+        `labecommerce_users`,
+        `labecommerce_purchases.user_id`,
+        `=`,
+        `labecommerce_users.id`
+      )
+      .where(`labecommerce_purchases.user_id`, `=`, user_id);
+    res.status(200).send(showOrder);
   } catch (error: any) {
     res.status(statusCode || 400).send(error.message);
   }

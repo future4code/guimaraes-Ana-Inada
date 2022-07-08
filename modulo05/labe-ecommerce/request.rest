@@ -19,7 +19,7 @@
 #     "image_url": "https://m.media-amazon.com/images/I/71atpfdmmyL._AC_SX355_.jpg"
 # }
 
-GET http://localhost:3003/products
+# GET http://localhost:3003/products
 
 
 
@@ -31,3 +31,4 @@ GET http://localhost:3003/products
 #     "product_id": "a1f445a3-20fe-4bcb-9ef8-6373b7ecc88e", 
 #     "quantity": 2
 # }
+GET http://localhost:3003/users/3eea96c8-5f53-4a92-af03-05cc99e3be01/purchases
