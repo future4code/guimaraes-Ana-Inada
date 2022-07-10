@@ -20,7 +20,9 @@ https://documenter.getpostman.com/view/19714222/UzJMtGVd
 
 - JavaScript
 - TypeScript
--
+- express
+- knex
+- mySql
 
 ### O que conseguir fazer?
 
@@ -30,5 +32,6 @@ https://documenter.getpostman.com/view/19714222/UzJMtGVd
 - endpoit postOrder;
 - endpoit postProdut;
 - endpoit postUser;
+- endpoit getAllOrdersByUser;
 
 ### O que não consegui fazer?
