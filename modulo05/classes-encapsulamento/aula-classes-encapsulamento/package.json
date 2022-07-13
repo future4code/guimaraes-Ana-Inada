@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev ./src/index.ts",
-    "start": "tsc && node ./build/index.js",
-    "exemplo": "ts-node-dev ./src/exemplo.ts"
+    "start": "tsc && node ./build/index.js"
   },
   "keywords": [],
   "author": "",

@@ -1,51 +1,55 @@
-import { Request, Response } from "express";
-import { app } from "./app";
-import { Character } from "./data/Character";
-import { CharacterDataBase } from "./data/CharacterDataBase";
-import { connection } from "./data/connection";
+// EXERCÍCIO 1
 
+// A. O construtuctor permite para parâmetros a uma classe quando instanciada.
 
-app.get('/character', async (req: Request, res: Response) => {
-    try {
-        const characterDB = new CharacterDataBase()
-        const result = await characterDB.getAll()
+// B. Nunhuma vez foi impressa no terminal, não tem o type transsaction e não foi passado parâmetros
+class UserAccount {
+  private cpf: string;
+  private name: string;
+  private age: number;
+  private balance: number = 0;
+  private transactions: Transaction[] = [];
 
-        res.status(200).send(result)
-        
-    } catch (error:any) {
-        res.status(400).send(error.sqlMessage || error.message)
-    }
-}) 
+  constructor(cpf: string, name: string, age: number) {
+    console.log("Chamando o construtor da classe UserAccount");
+    this.cpf = cpf;
+    this.name = name;
+    this.age = age;
+  }
+  // EXERCÍCIO 2
+  public getNome = (): string => {
+    return this.name;
+  };
+  public getcpf = (): string => {
+    return this.cpf;
+  };
+  public getidade = (): number => {
+    return this.age;
+  };
+}
 
-app.post('/character', async (req: Request, res: Response) => {
-    try {
-        const {name, team, age} = req.body
-        const id = Math.random().toString()
+// C. Criando métodos públicos
+const cadastroCliente = new UserAccount("876980860", "Fulana", 45);
+console.log(
+  cadastroCliente.getNome(),
+  cadastroCliente.getcpf(),
+  cadastroCliente.getidade()
+);
 
-        const newCharacter :Character = new Character(id, name, team, age)
-        const characterDB = new CharacterDataBase()
+// EXERCÍCIO 2
 
-        await characterDB.create(newCharacter)
+type Transaction = {
+  description: string;
+  value: number;
+  date: string;
+};
 
-        res.status(200).send("Usuário Criado!")
+// EXERCÍCIO 3
 
-    } catch (error:any) {
-        res.status(400).send(error.sqlMessage || error.message)
-        
-    }
-})
+class Bank {
+  private accounts: UserAccount[];
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  constructor(accounts: UserAccount[]) {
+    this.accounts = accounts;
+  }
+}
