@@ -1,0 +1,13 @@
+GET http://localhost:3003/character
+
+### 
+
+POST http://localhost:3003/character
+Content-Type: application/json
+
+{
+    "name": "Rick Sanches", 
+    "team": "Vasco", 
+    "age": 35
+}
+
