@@ -1,20 +1,23 @@
-POST http://localhost:3003/user/create 
-Content-Type: application/json 
+# POST http://localhost:3003/user/create
+# Content-Type: application/json
 
-{
-    "name": "Rodrigo5",
-    "nickname": "Rodrigo5",
-    "email": "rodrigo5@email.com",
-    "password": "1223145153"
-}
+# {
+#     "name": "teste",
+#     "email": "email@email.com",
+#     "password": "23432535"
+# }
 
-###
-POST http://localhost:3003/task/create 
-Content-Type: application/json 
+# GET http://localhost:3003/user
 
-{
-    "title": "aula arquitetura II",
-    "description": "como usar o express.router()",
-    "deadline": "26/05/2022",
-    "authorId": "1b146f8d-7709-4a84-8c3c-7f980e8d4da3" 
-}
+#  
+# POST http://localhost:3003/movies/create
+# Content-Type: application/json
+
+# {
+#     "title": "La doce vita",
+#     "description": "kjh;kjb;kj khkjh; hh;kjljk ",
+#     "duration_in_minutes": 89,
+#     "year_of_release": 1972
+# }
+GET http://localhost:3003/movies
+

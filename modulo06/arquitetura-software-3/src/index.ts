@@ -1,12 +1,6 @@
-import { app } from "./controller/app"
-import { taskRouter } from "./controller/routes/taskRouter"
-import { userRouter } from "./controller/routes/userRouter"
+import { app } from "./app";
+import { movieRouter } from "./routes/movieRouter";
+import { userRouter } from "./routes/userRouter";
 
-
-
-
-app.use('/user', userRouter )
-
-app.use('/task',taskRouter )
-
-
+app.use("/user", userRouter);
+app.use("/movies", movieRouter);
