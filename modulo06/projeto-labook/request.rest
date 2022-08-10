@@ -1,0 +1,23 @@
+# POST http://localhost:3003/users/create
+# Content-Type: application/json
+
+# {
+#     "name": "Ofélia",
+#     "email": "ofof@email.com",
+#     "password": "23432535"
+# }
+
+#
+
+# POST http://localhost:3003/posts/create
+# Content-Type: application/json
+
+# {
+#     "photo":"teste",
+#     "description":"teste",
+#     "type": "normal",
+#     "authorId":"4b3203cc-a0db-4c1b-ba98-6d8c4819a004"
+
+# }
+
+GET http://localhost:3003/posts/481deacf-78fb-46c4-8f7d-46876eaee404
