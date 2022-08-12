@@ -29,4 +29,8 @@ export class PostDataBase extends BaseDataBase {
       .where({ id });
     return post;
   }
+
+  // async findAll(id:string):Promise<post[]>{
+  //   const postsFriend = await PostDataBase.connection(PostDataBase.TABLE_POST)
+  // }
 }
