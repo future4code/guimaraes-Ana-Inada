@@ -13,23 +13,23 @@
 # Content-Type: application/json
 
 # {
-#     "photo":"Ofelia comendo",
+#     "photo":"Raichi com a patinha cruzada",
 #     "description":"teste",
 #     "type": "normal",
-#     "authorId":"6dd763db-2236-41b1-8e33-13bfe7882bdf"
+#     "authorId":"e58fc9ed-5130-4ce8-bfd5-d88bc9fc532a"
 
 # }
 
 # GET http://localhost:3003/posts/481deacf-78fb-46c4-8f7d-46876eaee404
 
-# POST http://localhost:3003/users/friendship/6dd763db-2236-41b1-8e33-13bfe7882bdf
+# POST http://localhost:3003/friendship/6dd763db-2236-41b1-8e33-13bfe7882bdf
 # Content-Type: application/json
 
 # {
 #     "idFriend": "79951086-8d85-46d0-9235-c1a8a4cad556"
 # }
 
-# DELETE http://localhost:3003/users/friendship/0b157b58-6551-4a04-9fc7-07aab5886fa9
+# DELETE http://localhost:3003/friendship/0b157b58-6551-4a04-9fc7-07aab5886fa9
 
 
 # GET http://localhost:3003/posts/

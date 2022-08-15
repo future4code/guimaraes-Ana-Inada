@@ -33,4 +33,19 @@ export class PostController {
       res.send({ message });
     }
   }
+
+  async findAll(req: Request, res: Response): Promise<void> {
+    try {
+      let message = "Success!";
+
+      const { id } = req.params;
+      const [result]: post[] = await postBusiness.findAll(id);
+      console.log(result);
+      res.status(200).send({ message, result });
+    } catch (error: any) {
+      let message = error.sqlMessage || error.message;
+      res.statusCode = 400;
+      res.send({ message });
+    }
+  }
 }

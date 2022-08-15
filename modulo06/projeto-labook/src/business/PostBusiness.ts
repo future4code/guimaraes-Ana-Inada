@@ -18,4 +18,9 @@ export class PostBusiness {
     const result = await postDataBase.findOne(id);
     return result;
   }
+
+  async findAll(id: string): Promise<post[]> {
+    const showAll = await postDataBase.findAll(id);
+    return showAll;
+  }
 }
