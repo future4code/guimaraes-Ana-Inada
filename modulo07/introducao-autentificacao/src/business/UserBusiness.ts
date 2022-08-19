@@ -1,14 +1,22 @@
 import { UserDatabase } from "../data/UserDatabase";
-import { CustomError, InvalidEmail, InvalidName } from "../error/customError";
+import {
+  CustomError,
+  InvalidEmail,
+  InvalidName,
+  InvalidPassword,
+  UserNotFound,
+} from "../error/customError";
 import {
   UserInputDTO,
   user,
   EditUserInputDTO,
   EditUserInput,
 } from "../model/user";
+import { Authenticator } from "../services/Authenticator";
+const authenticator = new Authenticator();
 
 export class UserBusiness {
-  public createUser = async (input: UserInputDTO) => {
+  public signup = async (input: UserInputDTO): Promise<string> => {
     try {
       const { name, nickname, email, password } = input;
 
@@ -38,6 +46,36 @@ export class UserBusiness {
       };
       const userDatabase = new UserDatabase();
       await userDatabase.insertUser(user);
+      const token = authenticator.generateToken({ id });
+      return token;
+    } catch (error: any) {
+      throw new CustomError(400, error.message);
+    }
+  };
+
+  public login = async (input: any): Promise<string> => {
+    try {
+      const { email, password } = input;
+
+      if (!email || !password) {
+        throw new CustomError(400, 'Preencha os campos "email" e "password"');
+      }
+
+      if (!email.includes("@")) {
+        throw new InvalidEmail();
+      }
+
+      const userDatabase = new UserDatabase();
+      const user = await userDatabase.findUserByEmail(email);
+      if (!user) {
+        throw new UserNotFound();
+      }
+      if (user.password !== password) {
+        throw new InvalidPassword();
+      }
+
+      const token = authenticator.generateToken({ id: user.id });
+      return token;
     } catch (error: any) {
       throw new CustomError(400, error.message);
     }
@@ -45,14 +83,15 @@ export class UserBusiness {
 
   public editUser = async (input: EditUserInputDTO) => {
     try {
-      const { name, nickname, id } = input;
+      const { name, nickname, token } = input;
 
-      if (!name || !nickname || !id) {
+      if (!name || !nickname) {
         throw new CustomError(
           400,
           'Preencha os campos "id", "name" e "nickname"'
         );
       }
+      const { id } = authenticator.getTokenData(token);
 
       if (name.length < 4) {
         throw new InvalidName();
