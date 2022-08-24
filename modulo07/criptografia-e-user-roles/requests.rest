@@ -1,3 +1,4 @@
+# @name signup
 
 POST http://localhost:3003/user/signup
 Content-Type: application/json
@@ -5,25 +6,26 @@ Content-Type: application/json
 {
    "name": "Norman Osbourne", 
    "nickname": "Green Goblin", 
-   "email": "osbourne@oscorp.com" ,
-   "password": "ihatepeter"
-}
-###
-
-POST http://localhost:3003/user/login
-Content-Type: application/json
-
-{
    "email": "osbourne@oscorp.com",
    "password": "ihatepeter"
 }
 
 ###
-PUT http://localhost:3003/user/edit/20bd6989-35f6-46a0-9ee5-caddc4e1b4c0
+POST http://localhost:3003/user/login
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIwYmQ2OTg5LTM1ZjYtNDZhMC05ZWU1LWNhZGRjNGUxYjRjMCIsImlhdCI6MTY1NDY0NzU4MSwiZXhwIjoxNjU0NjUxMTgxfQ.QjnFbW9cy_PH9CkJO6clhBaFJq6leqtkW0slrhkrcaI
+
+{ 
+   "email": "osbourne@oscorp.com",
+   "password": "ihatepeter"
+}
+
+###
+
+PUT http://localhost:3003/user/edit
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2NjA5MDg3MTM3NjkiLCJpYXQiOjE2NjA5MTg4MDgsImV4cCI6MTY2MDkxODg2OH0.2n86aHlZtejS_JnTCLzrFkuU4irxy0yNctgYLb0adf8
+Content-Type: application/json
 
 {
    "name": "Harry Osbourne",
-   "nickname": "Harry" 
+   "nickname": "maluco beleza"
 }

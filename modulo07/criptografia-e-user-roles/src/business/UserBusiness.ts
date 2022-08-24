@@ -1,21 +1,23 @@
 import { UserDatabase } from "../data/UserDatabase";
-import { CustomError, InvalidEmail, InvalidName, InvalidPassword, Unauthorized, UserNotFound } from "../error/customError";
+import {
+  CustomError,
+  InvalidEmail,
+  InvalidName,
+  InvalidPassword,
+  UserNotFound,
+} from "../error/customError";
 import {
   UserInputDTO,
   user,
   EditUserInputDTO,
   EditUserInput,
-  LoginInputDTO,
 } from "../model/user";
-import { IdGenerator } from "../services/IdGenerator";
-import { TokenGenerator } from "../services/TokenGenerator";
-
-const idGenerator = new IdGenerator()
-const tokenGenerator = new TokenGenerator()
-const userDatabase = new UserDatabase();
-
+import { Authenticator } from "../services/Authenticator";
+import { HashManager } from "../services/HashManager";
+const authenticator = new Authenticator();
+const hashManager = new HashManager();
 export class UserBusiness {
-  public createUser = async (input: UserInputDTO): Promise<string> => {
+  public signup = async (input: UserInputDTO): Promise<string> => {
     try {
       const { name, nickname, email, password } = input;
 
@@ -34,53 +36,53 @@ export class UserBusiness {
         throw new InvalidEmail();
       }
 
-      const id: string = idGenerator.generateId()
+      const id: string = Date.now().toString();
 
+      const hashPassword = await hashManager.generateHash(password);
       const user: user = {
         id,
         name,
         nickname,
         email,
-        password,
+        password: hashPassword,
       };
-   
+      const userDatabase = new UserDatabase();
       await userDatabase.insertUser(user);
-      const token = tokenGenerator.generateToken(id)
-
-      return token
+      const token = authenticator.generateToken({ id });
+      return token;
     } catch (error: any) {
       throw new CustomError(400, error.message);
     }
   };
 
-  public login = async (input: LoginInputDTO): Promise<string> => {
+  public login = async (input: any): Promise<string> => {
     try {
       const { email, password } = input;
-    
+
       if (!email || !password) {
-        throw new CustomError(
-          400,
-          'Preencha os campos"email" e "password"'
-        );
+        throw new CustomError(400, 'Preencha os campos "email" e "password"');
       }
 
       if (!email.includes("@")) {
         throw new InvalidEmail();
       }
 
-      const user = await userDatabase.findUser(email);
-
+      const userDatabase = new UserDatabase();
+      const user = await userDatabase.findUserByEmail(email);
       if (!user) {
-        throw new UserNotFound()
+        throw new UserNotFound();
       }
 
-      if(password !== user.password){ 
-        throw new InvalidPassword()
+      const hashCompare = await hashManager.compareHash(
+        password,
+        user.password
+      );
+      if (!hashCompare) {
+        throw new InvalidPassword();
       }
 
-      const token = tokenGenerator.generateToken(user.id)
-     
-      return token
+      const token = authenticator.generateToken({ id: user.id });
+      return token;
     } catch (error: any) {
       throw new CustomError(400, error.message);
     }
@@ -88,20 +90,15 @@ export class UserBusiness {
 
   public editUser = async (input: EditUserInputDTO) => {
     try {
-      const { name, nickname, id, token } = input;
+      const { name, nickname, token } = input;
 
-      if (!name || !nickname || !id || !token) {
+      if (!name || !nickname) {
         throw new CustomError(
           400,
-          'Preencha os campos "id", "name", "nickname" e "token"'
+          'Preencha os campos "id", "name" e "nickname"'
         );
       }
-
-      const data = tokenGenerator.tokenData(token)
-
-      if(!data.id) {
-        throw new Unauthorized()
-      }
+      const { id } = authenticator.getTokenData(token);
 
       if (name.length < 4) {
         throw new InvalidName();
