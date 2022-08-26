@@ -1,0 +1,54 @@
+
+POST http://localhost:3003/user/create
+Content-Type: application/json
+
+{
+   "name": "Estilingue", 
+   "email": "es@email.com",
+   "password": "hgdhhlhlkhyy"
+}
+
+###
+POST http://localhost:3003/user/login
+Content-Type: application/json
+
+{
+   "email": "felia@email.com",
+   "password": "hgdhhlhlkhyy"
+}
+
+###
+
+GET http://localhost:3003/user/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2NjE0MzQzMTEyNzgiLCJlbWFpbCI6ImZlbGlhQGVtYWlsLmNvbSIsImlhdCI6MTY2MTQ2ODAwMSwiZXhwIjoxNjYxNDY4MDYxfQ.OoPZbgmlftma5EytzOcEKdLcLm4gzU0o24ww7RYdQ-4
+Content-Type: application/json
+
+
+### criar amizade 
+POST http://localhost:3003/friendship/1661434311278
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2NjE0MzQzMTEyNzgiLCJlbWFpbCI6ImZlbGlhQGVtYWlsLmNvbSIsImlhdCI6MTY2MTUyNzU2OCwiZXhwIjoxNjYxNTI3NjI4fQ.itZbG8IvSt-54mUGqKFTUpdU_pTeLiIC40ih3vLnyMQ
+
+{
+   "id_followed_user": "1661438455210"
+}
+
+###
+POST  http://localhost:3003/recipe/create
+Content-Type: application/json
+
+{
+   "title": "Sopa de abóbora",
+   "description": "Em uma panela grande, doure o alho em um fio de óleo e logo acrescente a cebola picada. Mexa rápido e acrescente a abóbora picada e a batata. Coloque a água e deixe ferver, após fervura colocar o caldo de legumes e mexer. Deixe cozinhar com tampa até a abóbora e a batata estarem cozidas. Desligue o fogo. E Espere amornar um pouco. Depois despeje tudo no liquidificador e bata até virar creme. Despeje na panela novamente e cozinhe uns 3 minutos com a cebolinha, acrescente sal se necessário.Sirva quente, com cubinhos de queijo branco e torradas",
+   "deadline": "2022-08-09",
+   "author_id": "1661434311278"
+}
+
+###
+PUT http://localhost:3003/user/edit/id
+Content-Type: application/json
+
+{
+   "name": "Harry Osbourne" 
+}
+
+###
