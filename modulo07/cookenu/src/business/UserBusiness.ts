@@ -1,8 +1,10 @@
 import { UserDatabase } from "../data/UserDatabase";
 import {
   CustomError,
+  invalidAuthenticatorData,
   InvalidEmail,
   InvalidPassword,
+  invalidToken,
   UserNotFound,
 } from "../error/customError";
 import { Profile, user, UserInputDTO, UserLogin } from "../model/user";
@@ -81,8 +83,19 @@ export class UserBusiness {
   };
 
   public getProfile = async (token: string): Promise<Profile> => {
-    const result = await userDatabase.getProfile(token);
-    return result;
+    if (!token) {
+      throw new invalidToken();
+    }
+
+    const authenticatorData = new Authenticator().getTokenData(token);
+
+    if (!authenticatorData.id) {
+      throw new invalidAuthenticatorData();
+    }
+
+    const user = await userDatabase.getProfile(authenticatorData.id);
+
+    return user;
   };
 }
 // async findOne(id: string): Promise<post[]> {

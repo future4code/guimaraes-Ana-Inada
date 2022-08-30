@@ -47,10 +47,14 @@ export class UserDatabase extends BaseDatabase {
     }
   };
 
-  public getProfile = async (token: string): Promise<Profile> => {
+  public getProfile = async (id: string): Promise<Profile> => {
     try {
-      const { id, email } = authenticator.getTokenData(token);
-      return { id, email };
+      const user = await UserDatabase.connection
+        .select("id", "name", "email")
+        .where({ id })
+        .into(UserDatabase.TABLE_USER);
+
+      return user[0];
     } catch (error: any) {
       throw new CustomError(400, error.message);
     }

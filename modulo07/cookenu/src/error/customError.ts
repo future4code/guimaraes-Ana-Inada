@@ -33,3 +33,15 @@ export class Unauthorizded extends CustomError {
     super(401, "Usuário não autorizado, faça o login novamente");
   }
 }
+
+export class invalidToken extends CustomError {
+  constructor() {
+    super(400, "Token não foi informado no headers");
+  }
+}
+
+export class invalidAuthenticatorData extends CustomError {
+  constructor() {
+    super(400, "Usuário não autorizado");
+  }
+}

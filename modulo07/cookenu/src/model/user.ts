@@ -18,6 +18,7 @@ export interface UserLogin {
 
 export interface Profile {
   id: string;
+  name: string;
   email: string;
 }
 
