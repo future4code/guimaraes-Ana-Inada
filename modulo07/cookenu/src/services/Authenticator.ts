@@ -1,7 +1,7 @@
 import * as jwt from "jsonwebtoken";
 import { Unauthorizded } from "../error/customError";
 
-const expiresIn = "1min";
+const expiresIn = "60min";
 
 export type AuthenticationData = {
   id: string;

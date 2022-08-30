@@ -12,3 +12,9 @@ export interface recipeInput {
   deadline: Date;
   author_id: string;
 }
+export interface post {
+  title: string;
+  description: string;
+  deadline: Date;
+  name: string;
+}

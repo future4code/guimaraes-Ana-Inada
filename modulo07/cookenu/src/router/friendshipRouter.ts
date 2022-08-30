@@ -6,3 +6,4 @@ export const friendRouter = express.Router();
 const friendshipController = new FriendshipController();
 
 friendRouter.post("/:id", friendshipController.insertFriend);
+friendRouter.get("/:id", friendshipController.getFriendsPost);

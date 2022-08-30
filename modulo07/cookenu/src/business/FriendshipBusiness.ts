@@ -1,5 +1,6 @@
 import { FriendshipDatabase } from "../data/friendshipDatabase";
 import { CustomError } from "../error/customError";
+import { friendshipPost } from "../model/friendship";
 import { Authenticator } from "../services/Authenticator";
 import { IdGenerator } from "../services/IdGenerator";
 
@@ -24,10 +25,14 @@ export class FriendshipBusiness {
         id_user_follows,
         id_followed_user,
       };
-
       await friendshipDatabase.insertFriend(inserirFriend);
     } catch (error: any) {
       throw new CustomError(400, error.message);
     }
+  };
+
+  public getFriendsPost = async (id: string): Promise<friendshipPost[]> => {
+    const result = await friendshipDatabase.getFriendsPost(id);
+    return result;
   };
 }
