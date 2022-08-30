@@ -1,4 +1,4 @@
-
+### criar usuário
 POST http://localhost:3003/user/create
 Content-Type: application/json
 
@@ -8,7 +8,7 @@ Content-Type: application/json
    "password": "hgdhhlhlkhyy"
 }
 
-###
+### Login do usuário
 POST http://localhost:3003/user/login
 Content-Type: application/json
 
@@ -17,11 +17,11 @@ Content-Type: application/json
    "password": "hgdhhlhlkhyy"
 }
 
-###
+### ver o próprio perfil
 
-GET http://localhost:3003/user/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2NjE0MzQzMTEyNzgiLCJlbWFpbCI6ImZlbGlhQGVtYWlsLmNvbSIsImlhdCI6MTY2MTQ2ODAwMSwiZXhwIjoxNjYxNDY4MDYxfQ.OoPZbgmlftma5EytzOcEKdLcLm4gzU0o24ww7RYdQ-4
+GET http://localhost:3003/user
 Content-Type: application/json
-
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjA2NTY3Y2FlLTJjYTYtNGFlMi1hM2RkLWVjMTkxYWIyMzBhYSIsImVtYWlsIjoiZmVsaWFAZW1haWwuY29tIiwiaWF0IjoxNjYxODg2NTY0LCJleHAiOjE2NjE4OTAxNjR9.ZWU6VpYblfABVlcg4hFIZle8TkRwNKHUEBZpuHTMwdo
 
 ### criar amizade 
 POST http://localhost:3003/friendship/06567cae-2ca6-4ae2-a3dd-ec191ab23
@@ -32,7 +32,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjA2NTY3Y2FlLTJjYTYt
    "id_followed_user": "0e8c2a38-467b-44a0-accd-f62643a93711"
 }
 
-###
+### Criar receita
 POST  http://localhost:3003/recipe/create
 Content-Type: application/json
 
@@ -49,11 +49,11 @@ Content-Type: application/json
 ### 
 
 
-PUT http://localhost:3003/user/edit/id
-Content-Type: application/json
+# PUT http://localhost:3003/user/edit/id
+# Content-Type: application/json
 
-{
-   "name": "Harry Osbourne" 
-}
+# {
+#    "name": "Harry Osbourne" 
+# }
 
 ###
