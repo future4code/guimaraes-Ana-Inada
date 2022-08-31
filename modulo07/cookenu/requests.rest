@@ -1,0 +1,59 @@
+### criar usuário
+POST http://localhost:3003/user/create
+Content-Type: application/json
+
+{
+   "name": "Ofélia", 
+   "email": "felia@email.com",
+   "password": "hgdhhlhlkhyy"
+}
+
+### Login do usuário
+POST http://localhost:3003/user/login
+Content-Type: application/json
+
+{
+   "email": "felia@email.com",
+   "password": "hgdhhlhlkhyy"
+}
+
+### ver o próprio perfil
+
+GET http://localhost:3003/user
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjA2NTY3Y2FlLTJjYTYtNGFlMi1hM2RkLWVjMTkxYWIyMzBhYSIsImVtYWlsIjoiZmVsaWFAZW1haWwuY29tIiwiaWF0IjoxNjYxODg2NTY0LCJleHAiOjE2NjE4OTAxNjR9.ZWU6VpYblfABVlcg4hFIZle8TkRwNKHUEBZpuHTMwdo
+
+### criar amizade 
+POST http://localhost:3003/friendship/06567cae-2ca6-4ae2-a3dd-ec191ab23
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjA2NTY3Y2FlLTJjYTYtNGFlMi1hM2RkLWVjMTkxYWIyMzBhYSIsImVtYWlsIjoiZmVsaWFAZW1haWwuY29tIiwiaWF0IjoxNjYxNjk5ODQ4LCJleHAiOjE2NjE3MDM0NDh9.aBfowbsDwR1X92RGzk38jmrHzJkSBsCrk9f_rja7dfU
+
+{
+   "id_followed_user": "0e8c2a38-467b-44a0-accd-f62643a93711"
+}
+
+### Criar receita
+POST  http://localhost:3003/recipe/create
+Content-Type: application/json
+
+{
+   "title": "Sopa de abóbora",
+   "description": "Em uma panela grande, doure o alho em um fio de óleo e logo acrescente a cebola picada. Mexa rápido e acrescente a abóbora picada e a batata. Coloque a água e deixe ferver, após fervura colocar o caldo de legumes e mexer. Deixe cozinhar com tampa até a abóbora e a batata estarem cozidas. Desligue o fogo. E Espere amornar um pouco. Depois despeje tudo no liquidificador e bata até virar creme. Despeje na panela novamente e cozinhe uns 3 minutos com a cebolinha, acrescente sal se necessário.Sirva quente, com cubinhos de queijo branco e torradas",
+   "deadline": "2022-08-09",
+   "author_id": "0e8c2a38-467b-44a0-accd-f62643a93711"
+}
+
+### Feed
+GET http://localhost:3003/friendship/06567cae-2ca6-4ae2-a3dd-ec191ab230aa
+Content-Type: application/json
+### 
+
+
+# PUT http://localhost:3003/user/edit/id
+# Content-Type: application/json
+
+# {
+#    "name": "Harry Osbourne" 
+# }
+
+###

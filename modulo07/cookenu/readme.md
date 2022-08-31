@@ -1,0 +1,1 @@
+- não entendi a funcionalidade da class IdGenerator
