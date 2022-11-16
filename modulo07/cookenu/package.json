@@ -1,5 +1,5 @@
 {
-    "name": "to-do-list",
+    "name": "Cookenu",
     "version": "1.0.0",
     "main": "index.js",
     "scripts": {
@@ -7,7 +7,7 @@
         "dev": "tsnd --transpile-only --ignore-watch node_modules ./src/index.ts",
         "test": "ts-node-dev ./src/services/authenticator.ts"
     },
-    "author": "Labenu",
+    "author": "Ana Carolina Kazue Inada",
     "license": "ISC",
     "dependencies": {
         "bcryptjs": "^2.4.3",
